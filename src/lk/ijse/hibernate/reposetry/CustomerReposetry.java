@@ -5,8 +5,6 @@ import lk.ijse.hibernate.util.SessionFactoryConfigaration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.io.Serializable;
-
 public class CustomerReposetry {
 
     private Session session ;
@@ -15,13 +13,13 @@ public class CustomerReposetry {
         session = SessionFactoryConfigaration.getInstance().getSession();
     }
 
-    public Integer saveCustomer(Customer customer){
+    public Long saveCustomer(Customer customer){
         Transaction transaction = session.beginTransaction();
        /* Integer id = (Integer) session.save(customer);
         transaction.commit();*/
 
         try {
-            Integer id = (Integer) session.save(customer);
+            Long id = (Long) session.save(customer);
             transaction.commit();
             return id;
 
@@ -29,9 +27,42 @@ public class CustomerReposetry {
             transaction.rollback();
             System.out.println(e);
             e.printStackTrace();
-            return -1;
+            return -1L;
         }
 
     }
 
+    public boolean updateCustomer(Customer customer){
+
+        Transaction transaction = session.beginTransaction();
+
+
+
+        try {
+            session.update(customer);
+            transaction.commit();
+            return true;
+
+        }catch (Exception e){
+
+            transaction.rollback();
+            System.out.println(e);
+            e.printStackTrace();
+            return false;
+
+        }
+    }
+
+    public Customer getCustomer(Long id){
+
+        try {
+
+           return session.get(Customer.class,id);
+
+        }catch (Exception e){
+
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }
