@@ -64,5 +64,28 @@ public class CustomerReposetry {
             e.printStackTrace();
             throw e;
         }
+
+
+    }
+
+    public boolean deleteCustomer(Customer customer){
+
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.delete(customer);
+            transaction.commit();
+            return true;
+
+        }catch (Exception e){
+
+            transaction.rollback();
+            System.out.println(e);
+            e.printStackTrace();
+            return false;
+
+        }
+
+
     }
 }

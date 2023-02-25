@@ -15,13 +15,16 @@ public class AppInitializer {
 
     public static void main(String[] args) {
 
-/*
+/* Save Customer
         CustomerReposetry customerReposetry = new CustomerReposetry();
         Customer customer = getCustomerEntity();
         customerReposetry.saveCustomer(customer);
 */
 
-        CustomerReposetry customerReposetry = new CustomerReposetry();
+
+        // Update customer
+
+       /* CustomerReposetry customerReposetry = new CustomerReposetry();
         Customer customer = customerReposetry.getCustomer(1L);
         System.out.println("customer_id: "+customer.getId());
 
@@ -35,7 +38,20 @@ public class AppInitializer {
         }else {
             System.out.println("Customer "+ customer.getId() + "Updated Not Succsessfully");
 
-        }
+        }*/
+
+
+        // Delete Customer
+
+        CustomerReposetry customerReposetry = new CustomerReposetry();
+        Customer customer = getCustomerEntity();
+        customerReposetry.deleteCustomer(customer);
+
+
+
+
+
+
 
 
        /* Customer customer = new Customer();
@@ -70,6 +86,8 @@ public class AppInitializer {
 
     }
 
+
+    // save customer
     private static Customer getCustomerEntity(){
 
         Customer customer = new Customer();
@@ -78,8 +96,8 @@ public class AppInitializer {
 
         CusName cusName = new CusName();
         cusName.setFirst_name("Ishan");
-        cusName.setMiddle_name("Dhananjaya");
-        cusName.setLast_name("Ishan");
+        cusName.setMiddle_name("Dhananjana");
+        cusName.setLast_name("Dissanayaka");
 
 
         customer.setName(cusName);
