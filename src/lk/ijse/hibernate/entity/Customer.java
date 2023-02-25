@@ -2,8 +2,10 @@ package lk.ijse.hibernate.entity;
 
 import lk.ijse.hibernate.embeded.CusName;
 import lk.ijse.hibernate.embeded.MobileNumber;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,10 @@ public class Customer {
     @CollectionTable(name = "customer_mobile_no",joinColumns = @JoinColumn(name = "customer_id"))
 
     private List<MobileNumber> numbers = new ArrayList<>();
+
+    @CreationTimestamp
+    private Timestamp time;
+
 
 
     public Customer() {
