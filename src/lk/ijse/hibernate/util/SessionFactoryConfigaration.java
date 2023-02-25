@@ -17,6 +17,8 @@ public class SessionFactoryConfigaration {
 
     private  SessionFactory sessionFactory;
     private SessionFactoryConfigaration() {
+        sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure().build()).addAnnotatedClass(Customer.class).getMetadataBuilder()
+                .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build().getSessionFactoryBuilder().build();
     }
 
     public static SessionFactoryConfigaration getInstance(){
@@ -32,8 +34,6 @@ public class SessionFactoryConfigaration {
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build();*/
 
 
-         sessionFactory = new MetadataSources(serviceRegistry).addAnnotatedClass(Customer.class).getMetadataBuilder()
-                .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build().getSessionFactoryBuilder().build();
 
         Session session = sessionFactory.openSession();
 
