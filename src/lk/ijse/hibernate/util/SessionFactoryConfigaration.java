@@ -15,6 +15,10 @@ public class SessionFactoryConfigaration {
 
     private static SessionFactoryConfigaration sessionFactoryConfigaration;
 
+    private  SessionFactory sessionFactory;
+    private SessionFactoryConfigaration() {
+    }
+
     public static SessionFactoryConfigaration getInstance(){
         return sessionFactoryConfigaration == null ? sessionFactoryConfigaration = new SessionFactoryConfigaration()
                 : sessionFactoryConfigaration;
@@ -24,11 +28,13 @@ public class SessionFactoryConfigaration {
 
         StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
 
-        Metadata metadata = new MetadataSources(serviceRegistry).addAnnotatedClass(Customer.class).getMetadataBuilder()
-                .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build();
+    /*    Metadata metadata = new MetadataSources(serviceRegistry).addAnnotatedClass(Customer.class).getMetadataBuilder()
+                .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build();*/
 
 
-        SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
+         sessionFactory = new MetadataSources(serviceRegistry).addAnnotatedClass(Customer.class).getMetadataBuilder()
+                .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build().getSessionFactoryBuilder().build();
+
         Session session = sessionFactory.openSession();
 
         return session;

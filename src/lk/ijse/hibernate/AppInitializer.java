@@ -24,5 +24,8 @@ public class AppInitializer {
         transaction.commit();
         session.close();
 
+       /* new SessionFactoryConfigaration();
+        new SessionFactoryConfigaration();*/
+
     }
 }
