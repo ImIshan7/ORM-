@@ -12,10 +12,10 @@ public class AppInitializer {
 
         Customer customer = new Customer();
 
-        customer.setId(01);
-     customer.setName("Ishan");
-     customer.setAddress("Wanduramba");
-     customer.setContact("0771867407");
+        customer.setId(2L);
+     customer.setName("Eshan");
+     customer.setAddress("Galle");
+     customer.setContact("0771860987");
 
         Session session = SessionFactoryConfigaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
