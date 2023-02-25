@@ -1,5 +1,6 @@
 package lk.ijse.hibernate.util;
 
+
 import lk.ijse.hibernate.entity.Customer;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

@@ -3,6 +3,7 @@ package lk.ijse.hibernate;
 import lk.ijse.hibernate.entity.Customer;
 import lk.ijse.hibernate.util.SessionFactoryConfigaration;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class AppInitializer {
 
@@ -17,6 +18,11 @@ public class AppInitializer {
      customer.setContact("0771867407");
 
         Session session = SessionFactoryConfigaration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
         session.save(customer);
+        transaction.commit();
+        session.close();
+
     }
 }

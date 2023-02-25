@@ -1,7 +1,11 @@
 package lk.ijse.hibernate.entity;
 
-public class Customer {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Customer {
+    @Id
     private long id;
     private String name;
     private String address;
