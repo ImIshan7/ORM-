@@ -9,6 +9,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryConfigaration {
 
@@ -16,8 +17,15 @@ public class SessionFactoryConfigaration {
 
     private  SessionFactory sessionFactory;
     private SessionFactoryConfigaration() {
-        sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure().build()).addAnnotatedClass(Customer.class).getMetadataBuilder()
-                .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build().getSessionFactoryBuilder().build();
+       /* sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure().build()).addAnnotatedClass(Customer.class).getMetadataBuilder()
+            .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build().getSessionFactoryBuilder().build();*/
+
+
+        /*Configuration configuration = new Configuration().configure().addAnnotatedClass(Customer.class);
+        sessionFactory = configuration.buildSessionFactory();*/
+
+        sessionFactory = new Configuration().configure().addAnnotatedClass(Customer.class).buildSessionFactory();
+
     }
 
     public static SessionFactoryConfigaration getInstance(){

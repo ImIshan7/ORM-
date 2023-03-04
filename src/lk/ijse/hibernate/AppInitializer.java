@@ -15,16 +15,15 @@ public class AppInitializer {
 
     public static void main(String[] args) {
 
-/* Save Customer
+ //Save Customer
         CustomerReposetry customerReposetry = new CustomerReposetry();
         Customer customer = getCustomerEntity();
         customerReposetry.saveCustomer(customer);
-*/
 
 
-        // Update customer
 
-       /* CustomerReposetry customerReposetry = new CustomerReposetry();
+     /*   // Update customer
+       CustomerReposetry customerReposetry = new CustomerReposetry();
         Customer customer = customerReposetry.getCustomer(1L);
         System.out.println("customer_id: "+customer.getId());
 
@@ -41,20 +40,16 @@ public class AppInitializer {
         }*/
 
 
+
         // Delete Customer
 
-        CustomerReposetry customerReposetry = new CustomerReposetry();
+       /* CustomerReposetry customerReposetry = new CustomerReposetry();
         Customer customer = getCustomerEntity();
-        customerReposetry.deleteCustomer(customer);
+        customerReposetry.deleteCustomer(customer);*/
 
 
 
-
-
-
-
-
-       /* Customer customer = new Customer();
+      /* Customer customer = new Customer();
 
         customer.setId(1L);
 

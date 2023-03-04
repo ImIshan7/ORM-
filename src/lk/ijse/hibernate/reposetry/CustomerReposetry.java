@@ -27,6 +27,7 @@ public class CustomerReposetry {
             transaction.rollback();
             System.out.println(e);
             e.printStackTrace();
+            session.close();
             return -1L;
         }
 
@@ -48,6 +49,7 @@ public class CustomerReposetry {
             transaction.rollback();
             System.out.println(e);
             e.printStackTrace();
+            session.close();
             return false;
 
         }
@@ -82,6 +84,7 @@ public class CustomerReposetry {
             transaction.rollback();
             System.out.println(e);
             e.printStackTrace();
+            session.close();
             return false;
 
         }
