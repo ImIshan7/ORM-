@@ -9,17 +9,22 @@ public class DeatchedState {
     public static void main(String[] args) {
 
 
+        //Update Customer
+
         Session session = SessionFactoryConfigaration.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
 
         Customer customer = new Customer();
 
-        customer.setId(3L);
+        //customer.setId(3l);
+
         customer.setAddress("Mabotuwana");
         customer.setContact("0786397125");
 
         session.save(customer);
+        
+        transaction.commit();
 
         CusName name = new CusName();
         name.setFirst_name("Ishan");

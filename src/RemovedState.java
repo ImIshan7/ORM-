@@ -3,26 +3,21 @@ import lk.ijse.hibernate.util.SessionFactoryConfigaration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class TransientState {
+public class RemovedState {
 
     public static void main(String[] args) {
 
-      // Add Customer
+        //Delete Customer
 
-      Session session = SessionFactoryConfigaration.getInstance().getSession();
+        Session session = SessionFactoryConfigaration.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
 
-        Customer customer = new Customer();
-        customer.setAddress ("Transient");
-        customer.setAge(22);
+        Customer customer = session.get(Customer.class, 1L);
 
-        session.save(customer);
-
-        customer.setContact("041565656");
+        session.delete(customer);
 
         transaction.commit();
         session.close();
-
     }
 }
